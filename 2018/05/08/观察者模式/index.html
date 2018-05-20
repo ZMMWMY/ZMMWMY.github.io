@@ -17,12 +17,12 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="观察者模式： 观察者模式| 设计模式中的一种行为模式，旨在建立对象和对象之间的依赖关系，一个对象在发生改变的时候通知其他对象，其他对象便能做出对应的反应。发生改变的对象成为被观察者，做出反应的对象成为观察者。一个被观察者可以对应多个观察者。观察者之间不存在联系，可以根据需求动态的增加和删除观察者，使得系统并易于拓展，也符合开闭原则。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="c:/Users/ZMM/Desktop/Obeserver.jpg">
-<meta property="og:updated_time" content="2018-05-19T04:54:05.731Z">
+<meta property="og:image" content="http://img.my.csdn.net/uploads/201207/05/1341501815_4830.jpg">
+<meta property="og:updated_time" content="2018-05-20T05:54:03.854Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="观察者模式">
 <meta name="twitter:description" content="观察者模式： 观察者模式| 设计模式中的一种行为模式，旨在建立对象和对象之间的依赖关系，一个对象在发生改变的时候通知其他对象，其他对象便能做出对应的反应。发生改变的对象成为被观察者，做出反应的对象成为观察者。一个被观察者可以对应多个观察者。观察者之间不存在联系，可以根据需求动态的增加和删除观察者，使得系统并易于拓展，也符合开闭原则。">
-<meta name="twitter:image" content="c:/Users/ZMM/Desktop/Obeserver.jpg">
+<meta name="twitter:image" content="http://img.my.csdn.net/uploads/201207/05/1341501815_4830.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -333,7 +333,7 @@
 <li><p>观察者</p>
 </li>
 <li><p>具体的观察者</p>
-<p><img src="C:\Users\ZMM\Desktop\Obeserver.jpg" alt="Obeserver"></p>
+<p><img src="http://img.my.csdn.net/uploads/201207/05/1341501815_4830.jpg" alt="Obeserver"></p>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//抽象观察者类</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(Subject subject)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//具体观察者类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ObserverImpl</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(Subject subject)</span> </span>&#123;</span><br><span class="line">       </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//抽象主题类</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Observer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">attach</span><span class="params">(Observer observer)</span> </span>&#123;</span><br><span class="line">        list.add(observer);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">detach</span><span class="params">(Observer observer)</span> </span>&#123;</span><br><span class="line">        list.remove(observer);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObservers</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (Observer obs : list) &#123;</span><br><span class="line">            obs.update(<span class="keyword">this</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//具体主题类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubjectImpl</span> <span class="keyword">extends</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deal</span><span class="params">(Object data)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.notifyObservers();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -359,7 +359,7 @@
         <p><span>本文标题:</span><a  href="/2018/05/08/观察者模式/">观察者模式</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 Mr Z 的个人博客">Mr Z</a></p>
         <p><span>发布时间:</span>2018年05月08日 - 22时35分</p>
-        <p><span>最后更新:</span>2018年05月19日 - 12时54分</p>
+        <p><span>最后更新:</span>2018年05月20日 - 13时54分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/05/08/观察者模式/" title="观察者模式">http://yoursite.com/2018/05/08/观察者模式/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/05/08/观察者模式/　　作者: Mr Z" title=""></span>

@@ -17,10 +17,12 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="观察者模式在项目中的应用： 观察者模式| 设计模式中的一种行为模式，旨在建立对象和对象之间的依赖关系，一个对象在发生改变的时候通知其他对象，其他对象便能做出对应的反应。发生改变的对象成为被观察者，做出反应的对象成为观察者。一个被观察者可以对应多个观察者。观察者之间不存在联系，可以根据需求动态的增加和删除观察者，使得系统并易于拓展，也符合开闭原则。下面的讲讲观察者模式在项目中的实战应用，相关业务代">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-19T04:55:26.163Z">
+<meta property="og:image" content="http://img.my.csdn.net/uploads/201207/05/1341501815_4830.jpg">
+<meta property="og:updated_time" content="2018-05-20T05:54:07.141Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="观察者模式在项目中的应用">
 <meta name="twitter:description" content="观察者模式在项目中的应用： 观察者模式| 设计模式中的一种行为模式，旨在建立对象和对象之间的依赖关系，一个对象在发生改变的时候通知其他对象，其他对象便能做出对应的反应。发生改变的对象成为被观察者，做出反应的对象成为观察者。一个被观察者可以对应多个观察者。观察者之间不存在联系，可以根据需求动态的增加和删除观察者，使得系统并易于拓展，也符合开闭原则。下面的讲讲观察者模式在项目中的实战应用，相关业务代">
+<meta name="twitter:image" content="http://img.my.csdn.net/uploads/201207/05/1341501815_4830.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -323,6 +325,7 @@
 <p>基于JDK提供的Observer接口(观察者)和Observable基类(被观察者)</p>
 </blockquote>
 <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>用户在支付之后需要完成一系列额外的操作，比如会送刮刮卡，充值xx送xx等操作。之前代码是写在同一个类中。但是需求方一个又一个需求扔过来，急需对代码进行解耦。</p>
+<h3 id="UML"><a href="#UML" class="headerlink" title="UML"></a>UML</h3><p><img src="http://img.my.csdn.net/uploads/201207/05/1341501815_4830.jpg" alt="Obeserver"></p>
 <h2 id="Coding"><a href="#Coding" class="headerlink" title="Coding"></a>Coding</h2><h3 id="被观察者"><a href="#被观察者" class="headerlink" title="被观察者"></a>被观察者</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AccountTopicObservable</span> <span class="keyword">extends</span> <span class="title">Observable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">  	 * 通知观察者</span></span><br><span class="line"><span class="comment">  	 *</span></span><br><span class="line"><span class="comment">  	 /</span></span><br><span class="line"><span class="comment">    public void dealMessage(AccountChangeEvent event)&#123;</span></span><br><span class="line"><span class="comment">        super.setChanged();</span></span><br><span class="line"><span class="comment">        super.notifyObservers(event);</span></span><br><span class="line"><span class="comment">        super.clearChanged();</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;</span></span><br></pre></td></tr></table></figure>
 <p>这个类很简单，集成Observable。定义方法，用于通知观察者们</p>
 <h3 id="观察者"><a href="#观察者" class="headerlink" title="观察者"></a>观察者</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">AccountTopicListener</span> <span class="keyword">extends</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -351,7 +354,7 @@
         <p><span>本文标题:</span><a  href="/2018/05/09/观察者模式 在项目中应用/">观察者模式在项目中的应用</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 Mr Z 的个人博客">Mr Z</a></p>
         <p><span>发布时间:</span>2018年05月09日 - 22时35分</p>
-        <p><span>最后更新:</span>2018年05月19日 - 12时55分</p>
+        <p><span>最后更新:</span>2018年05月20日 - 13时54分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/05/09/观察者模式 在项目中应用/" title="观察者模式在项目中的应用">http://yoursite.com/2018/05/09/观察者模式 在项目中应用/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/05/09/观察者模式 在项目中应用/　　作者: Mr Z" title=""></span>
@@ -388,7 +391,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#需求"><span class="toc-number">1.</span> <span class="toc-text">需求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Coding"><span class="toc-number">2.</span> <span class="toc-text">Coding</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#被观察者"><span class="toc-number">2.1.</span> <span class="toc-text">被观察者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观察者"><span class="toc-number">2.2.</span> <span class="toc-text">观察者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观察者的实现类1"><span class="toc-number">2.3.</span> <span class="toc-text">观察者的实现类1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观察者2"><span class="toc-number">2.4.</span> <span class="toc-text">观察者2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注册"><span class="toc-number">2.5.</span> <span class="toc-text">注册</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#需求"><span class="toc-number">1.</span> <span class="toc-text">需求</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UML"><span class="toc-number">1.1.</span> <span class="toc-text">UML</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Coding"><span class="toc-number">2.</span> <span class="toc-text">Coding</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#被观察者"><span class="toc-number">2.1.</span> <span class="toc-text">被观察者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观察者"><span class="toc-number">2.2.</span> <span class="toc-text">观察者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观察者的实现类1"><span class="toc-number">2.3.</span> <span class="toc-text">观察者的实现类1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观察者2"><span class="toc-number">2.4.</span> <span class="toc-text">观察者2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注册"><span class="toc-number">2.5.</span> <span class="toc-text">注册</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
