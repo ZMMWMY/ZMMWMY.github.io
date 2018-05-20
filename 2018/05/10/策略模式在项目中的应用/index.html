@@ -9,18 +9,18 @@
   
   <title>策略模式在项目中的应用 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="策略模式在项目中的应用： 策略模式| 设计模式中的一种行为模式。定义一类算法，并将各类算法封装起来，独立于客户端。 策略模式比较简单，但在实际应用被普遍应用。一般在业务系统中，有非常多的算法，如果使用if else来实现业务代码，那么会让项目变的非常难维护。 需求系统中存在多种审核需求，比如红包申请审核，退货申请审核等，为了统一入口，节省代码量，所以使用Type入参来区分审核类型，如果通过if">
+  <meta name="description" content="策略模式在项目中的应用： 策略模式| 设计模式中的一种行为模式。定义一类算法，并将各类算法封装起来，独立于客户端。 策略模式比较简单，但在实际应用被普遍应用。一般在业务系统中，有非常多的算法，如果使用if else来实现业务代码，那么会让项目变的非常难维护。">
 <meta name="keywords" content="strategy pattern">
 <meta property="og:type" content="article">
 <meta property="og:title" content="策略模式在项目中的应用">
 <meta property="og:url" content="http://yoursite.com/2018/05/10/策略模式在项目中的应用/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="策略模式在项目中的应用： 策略模式| 设计模式中的一种行为模式。定义一类算法，并将各类算法封装起来，独立于客户端。 策略模式比较简单，但在实际应用被普遍应用。一般在业务系统中，有非常多的算法，如果使用if else来实现业务代码，那么会让项目变的非常难维护。 需求系统中存在多种审核需求，比如红包申请审核，退货申请审核等，为了统一入口，节省代码量，所以使用Type入参来区分审核类型，如果通过if">
+<meta property="og:description" content="策略模式在项目中的应用： 策略模式| 设计模式中的一种行为模式。定义一类算法，并将各类算法封装起来，独立于客户端。 策略模式比较简单，但在实际应用被普遍应用。一般在业务系统中，有非常多的算法，如果使用if else来实现业务代码，那么会让项目变的非常难维护。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-20T05:20:51.333Z">
+<meta property="og:updated_time" content="2018-05-20T05:22:43.768Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="策略模式在项目中的应用">
-<meta name="twitter:description" content="策略模式在项目中的应用： 策略模式| 设计模式中的一种行为模式。定义一类算法，并将各类算法封装起来，独立于客户端。 策略模式比较简单，但在实际应用被普遍应用。一般在业务系统中，有非常多的算法，如果使用if else来实现业务代码，那么会让项目变的非常难维护。 需求系统中存在多种审核需求，比如红包申请审核，退货申请审核等，为了统一入口，节省代码量，所以使用Type入参来区分审核类型，如果通过if">
+<meta name="twitter:description" content="策略模式在项目中的应用： 策略模式| 设计模式中的一种行为模式。定义一类算法，并将各类算法封装起来，独立于客户端。 策略模式比较简单，但在实际应用被普遍应用。一般在业务系统中，有非常多的算法，如果使用if else来实现业务代码，那么会让项目变的非常难维护。">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -319,6 +319,9 @@
           
         <p><strong> 策略模式在项目中的应用：</strong> <excerpt in="" index="" |="" 首页摘要=""><br>策略模式| 设计模式中的一种行为模式。定义一类算法，并将各类算法封装起来，独立于客户端。</excerpt></p>
 <p>策略模式比较简单，但在实际应用被普遍应用。一般在业务系统中，有非常多的算法，如果使用if else来实现业务代码，那么会让项目变的非常难维护。</p>
+<a id="more"></a>
+<the rest="" of="" contents="" |="" 余下全文="">
+
 <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>系统中存在多种审核需求，比如红包申请审核，退货申请审核等，为了统一入口，节省代码量，所以使用Type入参来区分审核类型，如果通过if else来区分，不仅增加了代码量，不易于阅读，如果要修改逻辑的话就违反了开闭原则，那么引用策略模式来解决该场景</p>
 <h2 id="Coding"><a href="#Coding" class="headerlink" title="Coding"></a>Coding</h2><h3 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">StrategyContext</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 转义</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> key</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function">T <span class="title">parse</span><span class="params">(String key)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>定义一个通用的上下文，parse()方法来解析上下文中的对象。</p>
@@ -341,7 +344,7 @@
 <p>​</p>
 </li>
 </ol>
-
+</the>
       
     </div>
     
@@ -352,7 +355,7 @@
         <p><span>本文标题:</span><a  href="/2018/05/10/策略模式在项目中的应用/">策略模式在项目中的应用</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 Mr Z 的个人博客">Mr Z</a></p>
         <p><span>发布时间:</span>2018年05月10日 - 10时39分</p>
-        <p><span>最后更新:</span>2018年05月20日 - 13时20分</p>
+        <p><span>最后更新:</span>2018年05月20日 - 13时22分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/05/10/策略模式在项目中的应用/" title="策略模式在项目中的应用">http://yoursite.com/2018/05/10/策略模式在项目中的应用/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/05/10/策略模式在项目中的应用/　　作者: Mr Z" title=""></span>
