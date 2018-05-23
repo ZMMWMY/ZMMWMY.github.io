@@ -7,20 +7,20 @@
   
   
   
-  <title>ELK 安全配置 | Mr Z Blog</title>
+  <title>算法-红黑树 | Mr Z Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ELK 安全配置： 上文介绍了如何搭建一个ELK平台。本文继续介绍如何为ELK加一个安全认证">
-<meta name="keywords" content="ELK,Docker,Search Guard">
+  <meta name="description" content="算法-红黑树： 红黑树算法">
+<meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ELK 安全配置">
-<meta property="og:url" content="http://yoursite.com/2017/05/08/ELK安全配置/index.html">
+<meta property="og:title" content="算法-红黑树">
+<meta property="og:url" content="http://yoursite.com/2017/10/30/红黑树算法/index.html">
 <meta property="og:site_name" content="Mr Z Blog">
-<meta property="og:description" content="ELK 安全配置： 上文介绍了如何搭建一个ELK平台。本文继续介绍如何为ELK加一个安全认证">
+<meta property="og:description" content="算法-红黑树： 红黑树算法">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-23T16:52:23.399Z">
+<meta property="og:updated_time" content="2018-05-23T16:54:20.937Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ELK 安全配置">
-<meta name="twitter:description" content="ELK 安全配置： 上文介绍了如何搭建一个ELK平台。本文继续介绍如何为ELK加一个安全认证">
+<meta name="twitter:title" content="算法-红黑树">
+<meta name="twitter:description" content="算法-红黑树： 红黑树算法">
   
     <link rel="alternative" href="/atom.xml" title="Mr Z Blog" type="application/atom+xml">
   
@@ -269,11 +269,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-ELK安全配置" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-红黑树算法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2017/05/08/ELK安全配置/" class="article-date">
-      <time datetime="2017-05-07T16:35:37.000Z" itemprop="datePublished">2017-05-08</time>
+      <a  href="/2017/10/30/红黑树算法/" class="article-date">
+      <time datetime="2017-10-30T14:35:37.000Z" itemprop="datePublished">2017-10-30</time>
 </a>
 
     </div>
@@ -287,7 +287,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      ELK 安全配置
+      算法-红黑树
     </h1>
   
 
@@ -299,7 +299,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ELK/">ELK</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Search-Guard/">Search Guard</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -309,24 +309,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><strong> ELK 安全配置：</strong> <excerpt in="" index="" |="" 首页摘要=""><br>上文介绍了如何搭建一个ELK平台。本文继续介绍如何为ELK加一个安全认证<br><a id="more"></a></excerpt></p>
+        <p><strong> 算法-红黑树：</strong> <excerpt in="" index="" |="" 首页摘要=""><br>红黑树算法<br><a id="more"></a></excerpt></p>
 <the rest="" of="" contents="" |="" 余下全文="">
-
-<h2 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h2><p>收集下来,对ELK进行安全控制的有一下几种</p>
-<ul>
-<li>x-pack</li>
-</ul>
-<p>x-pack作为Elastic自带的一款插件，功能相当强大，集成了认证，监控等。唯一的不足就是对认证这一个功能进行收费。哈哈。它的监控等工具是免费的，非常强大。</p>
-<ul>
-<li>Search Guard</li>
-</ul>
-<p>search guard是第三方的一款插件，也分为了社区版和企业版，只使用社区版已经能达到我们本次的需求</p>
-<ul>
-<li>Nginx</li>
-</ul>
-<p>Nginx能实现基本的认证</p>
-<p><strong>本文主要介绍如何使用Search Guard进行认证</strong></p>
-<h2 id="Search-Guard"><a href="#Search-Guard" class="headerlink" title="Search Guard"></a>Search Guard</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3></the>
+</the>
       
     </div>
     
@@ -334,13 +319,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2017/05/08/ELK安全配置/">ELK 安全配置</a></p>
+        <p><span>本文标题:</span><a  href="/2017/10/30/红黑树算法/">算法-红黑树</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 Mr Z 的个人博客">Mr Z</a></p>
-        <p><span>发布时间:</span>2017年05月08日 - 00时35分</p>
-        <p><span>最后更新:</span>2018年05月24日 - 00时52分</p>
+        <p><span>发布时间:</span>2017年10月30日 - 22时35分</p>
+        <p><span>最后更新:</span>2018年05月24日 - 00时54分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/05/08/ELK安全配置/" title="ELK 安全配置">http://yoursite.com/2017/05/08/ELK安全配置/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/05/08/ELK安全配置/　　作者: Mr Z" title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/10/30/红黑树算法/" title="算法-红黑树">http://yoursite.com/2017/10/30/红黑树算法/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/10/30/红黑树算法/　　作者: Mr Z" title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -351,7 +336,7 @@
 
 <nav id="article-nav">
   
-    <a  href="/2017/10/30/代理模式-静态代理和动态代理/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a  href="/2017/11/10/代理模式-静态代理和动态代理/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
@@ -369,7 +354,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#方案"><span class="toc-number">1.</span> <span class="toc-text">方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Search-Guard"><span class="toc-number">2.</span> <span class="toc-text">Search Guard</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#介绍"><span class="toc-number">2.1.</span> <span class="toc-text">介绍</span></a></li></ol></li></ol>
+    
 </div>
 <style>
     .left-col .switch-btn {
@@ -430,7 +415,7 @@
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: 'ELK 安全配置', // 可选。默认为 location.href
+  id: '算法-红黑树', // 可选。默认为 location.href
   owner: 'yourid',
   repo: 'yourrepo',
   oauth: {
@@ -447,7 +432,7 @@ gitment.render('comments')
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2017/10/30/代理模式-静态代理和动态代理/" title="上一篇: 代理模式-静态代理和动态代理">
+            <a  href="/2017/11/10/代理模式-静态代理和动态代理/" title="上一篇: 代理模式-静态代理和动态代理">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -456,7 +441,7 @@ gitment.render('comments')
             <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/05/12/分布式锁Redis最佳实践/">分布式锁Redis最佳实践</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/10/策略模式/">策略模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/10/策略模式在项目中的应用/">策略模式在项目中的应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/09/观察者模式 在项目中应用/">观察者模式在项目中的应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/08/观察者模式/">观察者模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/07/Install ELK By Docker/">Docker Install ELK</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/first/">突破算法第11天-红黑树</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/代理模式-静态代理和动态代理/">代理模式-静态代理和动态代理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/08/ELK安全配置/">ELK 安全配置</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/05/12/分布式锁Redis最佳实践/">分布式锁Redis最佳实践</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/10/策略模式/">策略模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/10/策略模式在项目中的应用/">策略模式在项目中的应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/09/观察者模式 在项目中应用/">观察者模式在项目中的应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/08/观察者模式/">观察者模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/08/ELK安全配置/">ELK 安全配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/07/Install ELK By Docker/">Docker Install ELK</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/10/代理模式-静态代理和动态代理/">代理模式-静态代理和动态代理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/红黑树算法/">算法-红黑树</a></li></ul>
     
 <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 

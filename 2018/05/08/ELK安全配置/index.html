@@ -7,19 +7,20 @@
   
   
   
-  <title>Archives: 2017/5 | Mr Z Blog</title>
+  <title>ELK 安全配置 | Mr Z Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我变强了,也变秃了。">
-<meta name="keywords" content="我变强了,也变秃了。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mr Z Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2017/05/index.html">
+  <meta name="description" content="ELK 安全配置： 上文介绍了如何搭建一个ELK平台。本文继续介绍如何为ELK加一个安全认证">
+<meta name="keywords" content="ELK,Docker,Search Guard">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ELK 安全配置">
+<meta property="og:url" content="http://yoursite.com/2018/05/08/ELK安全配置/index.html">
 <meta property="og:site_name" content="Mr Z Blog">
-<meta property="og:description" content="我变强了,也变秃了。">
+<meta property="og:description" content="ELK 安全配置： 上文介绍了如何搭建一个ELK平台。本文继续介绍如何为ELK加一个安全认证">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-23T16:53:48.049Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mr Z Blog">
-<meta name="twitter:description" content="我变强了,也变秃了。">
+<meta name="twitter:title" content="ELK 安全配置">
+<meta name="twitter:description" content="ELK 安全配置： 上文介绍了如何搭建一个ELK平台。本文继续介绍如何为ELK加一个安全认证">
   
     <link rel="alternative" href="/atom.xml" title="Mr Z Blog" type="application/atom+xml">
   
@@ -44,8 +45,8 @@
           fancybox: true,
           animate: true,
           isHome: false,
-          isPost: false,
-          isArchive: true,
+          isPost: true,
+          isArchive: false,
           isTag: false,
           isCategory: false,
           open_in_new: false
@@ -268,56 +269,230 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-ELK安全配置" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a  href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a  href="/2017/05/08/ELK安全配置/" class="archive-article-date">
-      <time datetime="2017-05-07T16:35:37.000Z" itemprop="datePublished">05-08</time>
+    <div class="article-meta">
+      <a  href="/2018/05/08/ELK安全配置/" class="article-date">
+      <time datetime="2018-05-07T16:35:37.000Z" itemprop="datePublished">2018-05-08</time>
 </a>
 
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a  class="archive-article-title" href="/2017/05/08/ELK安全配置/">ELK 安全配置</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ELK 安全配置
     </h1>
   
 
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 
-          
+        
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ELK/">ELK</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Search-Guard/">Search Guard</a></li></ul>
     </div>
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong> ELK 安全配置：</strong> <excerpt in="" index="" |="" 首页摘要=""><br>上文介绍了如何搭建一个ELK平台。本文继续介绍如何为ELK加一个安全认证<br><a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<h2 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h2><p>收集下来,对ELK进行安全控制的有一下几种</p>
+<ul>
+<li>x-pack</li>
+</ul>
+<p>x-pack作为Elastic自带的一款插件，功能相当强大，集成了认证，监控等。唯一的不足就是对认证这一个功能进行收费。哈哈。它的监控等工具是免费的，非常强大。</p>
+<ul>
+<li>Search Guard</li>
+</ul>
+<p>search guard是第三方的一款插件，也分为了社区版和企业版，只使用社区版已经能达到我们本次的需求</p>
+<ul>
+<li>Nginx</li>
+</ul>
+<p>Nginx能实现基本的认证</p>
+<p><strong>本文主要介绍如何使用Search Guard进行认证</strong></p>
+<h2 id="Search-Guard"><a href="#Search-Guard" class="headerlink" title="Search Guard"></a>Search Guard</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3></the>
+      
+    </div>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a  href="/2018/05/08/ELK安全配置/">ELK 安全配置</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问 Mr Z 的个人博客">Mr Z</a></p>
+        <p><span>发布时间:</span>2018年05月08日 - 00时35分</p>
+        <p><span>最后更新:</span>2018年05月24日 - 00时53分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/05/08/ELK安全配置/" title="ELK 安全配置">http://yoursite.com/2018/05/08/ELK安全配置/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/05/08/ELK安全配置/　　作者: Mr Z" title=""></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a  href="/2018/05/08/观察者模式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          观察者模式
+        
+      </div>
+    </a>
+  
+  
+    <a  href="/2018/05/07/Install ELK By Docker/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Docker Install ELK</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#方案"><span class="toc-number">1.</span> <span class="toc-text">方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Search-Guard"><span class="toc-number">2.</span> <span class="toc-text">Search Guard</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#介绍"><span class="toc-number">2.1.</span> <span class="toc-text">介绍</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
 
     
+        <section id="comments">
+<link rel="stylesheet" href="/css/gitment.min.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: 'ELK 安全配置', // 可选。默认为 location.href
+  owner: 'yourid',
+  repo: 'yourrepo',
+  oauth: {
+    client_id: 'yourid',
+    client_secret: 'yoursecret',
+  },
+})
+gitment.render('comments')
+</script>
+</section>
+    
 
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/2018/05/08/观察者模式/" title="上一篇: 观察者模式">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/2018/05/07/Install ELK By Docker/" title="下一篇: Docker Install ELK">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/05/12/分布式锁Redis最佳实践/">分布式锁Redis最佳实践</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/10/策略模式/">策略模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/10/策略模式在项目中的应用/">策略模式在项目中的应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/09/观察者模式 在项目中应用/">观察者模式在项目中的应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/08/观察者模式/">观察者模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/08/ELK安全配置/">ELK 安全配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/07/Install ELK By Docker/">Docker Install ELK</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/10/代理模式-静态代理和动态代理/">代理模式-静态代理和动态代理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/红黑树算法/">算法-红黑树</a></li></ul>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
 
 </div>
       <footer id="footer">
@@ -409,18 +584,6 @@ ga('send', 'pageview');
         };
     })
 </script>
-
-    <button class="hide-labels">TAG 开关</button>
-    
-<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            $("button").click(function() {
-                $(".article-info").toggle(200);
-            });
-        });
-    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
