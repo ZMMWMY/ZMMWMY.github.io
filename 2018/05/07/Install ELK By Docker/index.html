@@ -18,7 +18,7 @@
 <meta property="og:description" content="Docker Install ELK： Docker 安装ELK，docker-compose编排，本文不介绍Docker和Docker-compose安装，因为步骤简单，以后再补上">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3402766-f511a0142f72c76d.png">
-<meta property="og:updated_time" content="2018-05-23T16:35:04.956Z">
+<meta property="og:updated_time" content="2018-05-23T16:40:33.151Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker Install ELK">
 <meta name="twitter:description" content="Docker Install ELK： Docker 安装ELK，docker-compose编排，本文不介绍Docker和Docker-compose安装，因为步骤简单，以后再补上">
@@ -335,8 +335,7 @@
 </li>
 <li><p>docker-compose.yml</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">logstash:</span></span><br><span class="line"><span class="attr">  build:</span></span><br><span class="line"><span class="attr">    context:</span> <span class="string">logstash/</span></span><br><span class="line"><span class="attr">  volumes:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">"/root/elk-6.2.3/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml"</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">"/root/elk-6.2.3/logstash/pipeline/:/usr/share/logstash/pipeline/"</span></span><br><span class="line"><span class="attr">  ports:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">"5044:5044"</span></span><br><span class="line"><span class="attr">  depends_on:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">elasticsearch</span></span><br></pre></td></tr></table></figure>
-<p>##Part3. 启动ELK</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose build &amp;&amp; docker-compose up -d</span><br></pre></td></tr></table></figure>
+<h2 id="Part3-启动ELK"><a href="#Part3-启动ELK" class="headerlink" title="Part3. 启动ELK"></a>Part3. 启动ELK</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose build &amp;&amp; docker-compose up -d</span><br></pre></td></tr></table></figure>
 <p><img src="https://upload-images.jianshu.io/upload_images/3402766-f511a0142f72c76d.png" alt="微信截图_20180524003337"></p>
 <h2 id="Part4-Filebeat-收集日志"><a href="#Part4-Filebeat-收集日志" class="headerlink" title="Part4 .Filebeat(收集日志)"></a>Part4 .Filebeat(收集日志)</h2><p>Filebeat作为真正收集各个日志的组件。有占用内存和带宽小的优点</p>
 <ol>
@@ -351,7 +350,7 @@
 <li>docker-compose.yml</li>
 </ol>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'2'</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  filebeat:</span></span><br><span class="line"><span class="attr">    build:</span></span><br><span class="line"><span class="attr">      context:</span> <span class="string">.</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"/home/filebeat/data/:/usr/share/filebeat/data/"</span> <span class="comment">#持久化配置(filebeat id和读取日志的位置)</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"/home/filebeat/config/filebeat.yml:/usr/share/filebeat/filebeat.yml"</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"/home/filebeat/config/service/:/usr/share/filebeat/service/"</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"/home/project/logs/:/home/logs/project/"</span></span><br></pre></td></tr></table></figure>
-<p>​</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>搭建一个ELK的难度不大，但是我们在上线后ELK平台总不能没有认证，放在公网上裸奔。下篇文件介绍一下解决方案。</p>
 </li>
 </ol>
 </the>
@@ -365,7 +364,7 @@
         <p><span>本文标题:</span><a  href="/2018/05/07/Install ELK By Docker/">Docker Install ELK</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 Mr Z 的个人博客">Mr Z</a></p>
         <p><span>发布时间:</span>2018年05月07日 - 22时35分</p>
-        <p><span>最后更新:</span>2018年05月24日 - 00时35分</p>
+        <p><span>最后更新:</span>2018年05月24日 - 00时40分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/05/07/Install ELK By Docker/" title="Docker Install ELK">http://yoursite.com/2018/05/07/Install ELK By Docker/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/05/07/Install ELK By Docker/　　作者: Mr Z" title=""></span>
@@ -402,7 +401,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-1-Elasticsearch-Kibana"><span class="toc-number">1.</span> <span class="toc-text">Part 1 .Elasticsearch.Kibana</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-2-Logstash"><span class="toc-number">2.</span> <span class="toc-text">Part 2. Logstash</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Part4-Filebeat-收集日志"><span class="toc-number">3.</span> <span class="toc-text">Part4 .Filebeat(收集日志)</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-1-Elasticsearch-Kibana"><span class="toc-number">1.</span> <span class="toc-text">Part 1 .Elasticsearch.Kibana</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-2-Logstash"><span class="toc-number">2.</span> <span class="toc-text">Part 2. Logstash</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Part3-启动ELK"><span class="toc-number">3.</span> <span class="toc-text">Part3. 启动ELK</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Part4-Filebeat-收集日志"><span class="toc-number">4.</span> <span class="toc-text">Part4 .Filebeat(收集日志)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
